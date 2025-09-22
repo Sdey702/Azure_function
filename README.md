@@ -1,22 +1,54 @@
 # Azure_function
 
+# 📌 Project Overview
 
+This project integrates **Azure API Management (APIM)**, **Azure Functions**, **Azure Blob Storage**, **Azure Key Vault**, and **FTP** to securely handle file uploads and decryption.  
 
-# *************************** Overview ********************************
+---
 
+## 🔄 Workflow
 
+1. **API Management (APIM)**  
+   - Entry point for incoming requests.  
+   - Base URL:  
+     ```
+     https://testapimsubhankar.azure-api.net
+     ```
 
-We Have APIM [Base URL : https://testapimsubhankar.azure-api.net]
-         |
-        \ /
-Aure Function [We have environment Variable set inside that For FTP Host and USER PASS We need to change]
-         |
-        \ /
-After Request come to Azure Function We check the request body preseent or Not
-then decode the base64 then upload to blob storage 
+2. **Azure Function**  
+   - Validates the request body.  
+   - Decodes the Base64 input data.  
+   - Uploads the decoded file to **Blob Storage**.  
+   - Fetches the **PGP private key** from **Key Vault**.  
+   - Uses the key to **decrypt** the file.  
+   - Uploads the decrypted file to the configured **FTP server**.  
+   - FTP credentials and host details are provided via **environment variables**.
 
-then for key vault we extrat private key and use that key for decript the file
-then upload the file to FTP location
+---
 
+## ⚙️ Configuration
 
-# ***********************************************************************
+- **Environment Variables** (set in Azure Function App settings):
+  - `FTP_HOST`
+  - `FTP_USER`
+  - `FTP_PASS`
+
+- **Azure Services** used:
+  - **API Management** (secure request routing)  
+  - **Blob Storage** (temporary file storage)  
+  - **Key Vault** (secure key management)  
+  - **FTP Server** (final file destination)  
+
+---
+
+## 🚀 Flow Diagram (Conceptual)
+
+APIM (https://testapimsubhankar.azure-api.net)
+        |
+        v
+Azure Function
+  ├─ Validate & Decode Base64
+  ├─ Upload to Blob Storage
+  ├─ Retrieve Private Key from Key Vault
+  ├─ Decrypt File
+  └─ Upload to FTP
