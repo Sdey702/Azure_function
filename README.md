@@ -43,12 +43,14 @@ This project integrates **Azure API Management (APIM)**, **Azure Functions**, **
 
 ## 🚀 Flow Diagram (Conceptual)
 
+```
 APIM (https://testapimsubhankar.azure-api.net)
         |
         v
 Azure Function
-  ├─ Validate & Decode Base64
-  ├─ Upload to Blob Storage
+  ├─ Validate Request Body & Decode Base64
+  ├─ Upload Decode File to Blob Storage
   ├─ Retrieve Private Key from Key Vault
   ├─ Decrypt File
   └─ Upload to FTP
+```
