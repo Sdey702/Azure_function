@@ -1,0 +1,16 @@
+{
+  "IsEncrypted": false,
+  "Values": {
+    "AzureWebJobsStorage": "",
+    "FUNCTIONS_WORKER_RUNTIME": "python",
+    "MY_STORAGE": "DefaultEndpointsProtocol=https;AccountName=tempbase64decodefile;AccountKey=sMpCVekignEHo3RT0Mfp46lijakTCkfRk17Lm1vx3T7U8oZ/1arBUGe+c8xcsoWhrQQonofjiQ1q+ASttTx1HA==;EndpointSuffix=core.windows.net",
+    "MY_CONTAINER": "temp-base64-decode-files",
+    "KEY_VAULT_URL": "https://mefunctionkeyvault.vault.azure.net/",
+    "SERECT_NAME": "online8gwifi",
+    "PASSPHRASE": "1234",
+    "FTP_HOST":"eu-central-1.sftpcloud.io",
+    "FTP_USER":"5fc8b8b5782f4a6fbddcd3b4b477c786",
+    "FTP_PASSWORD":"4mCAlcESe24lC182nQpORlxvd8Cdn3C5",
+    "FTP_PATH":"/Test"
+  }
+}

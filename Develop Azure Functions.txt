@@ -1,0 +1,76 @@
+Develop Azure Functions locally using Core Tools
+Install Azure Function tools local from below link
+
+
+If we install that we can check the function localy using localhost URL
+============================================================================
+1. https://www.youtube.com/redirect?event=video_description&redir_token=QUFFLUhqbGJmT29hNG44QWNBZTBBQ1hpM0RsdlpoMGVad3xBQ3Jtc0tsNmN2ZlVSaG1TTnlFdXNLdEEyc0tCYXJJTkZGVmV6R2N2cWlMZ05jcWVrRkZIUXJfYnVPVGxZUF9kM1R4bVk5WkFYQTFwWmdMcFpvY0pQUF9XNl9ucWZTZXJRMG8xSjVVV0pRallvR3BwU1oxVE1fZw&q=https%3A%2F%2Flearn.microsoft.com%2Fen-us%2Fazure%2Fazure-functions%2Ffunctions-run-local%3Ftabs%3Dv4%252Cwindows%252Ccsharp%252Cportal%252Cbash&v=YQtVJ7qVXDs
+===========================================================================
+
+
+Note :
+
+   For Linux Desktop
+   
+   insted of second step I used below get x86_64 .deb package
+   -----------------------------------------------------------
+   1st step: wget https://packages.microsoft.com/ubuntu/24.04/prod/pool/main/a/azure-functions-core-tools/azure-functions-core-tools_4.0.7317-1_amd64.deb
+   
+   2nd step: sudo dpkg -i azure-functions-core-tools_4.0.7317-1_amd64.deb
+
+   it's actually slove ubuntu issue
+
+
+
+
+
+2. In vscode we install azure function extenction
+
+3. Azure symbol we can see inside vs code we have to singin inside azure account
+
+4. Now we can see all resource and subscription in vs-code
+
+5. chooes the subscription from filter and select it
+
+6. chooes the local folder from workspace CREATE NEW PROJECT
+
+7. python-3 schould be installed in the machine
+8. python3-venv also schould be installed IF YOU ARE USING VIRTUAL ENVIRONMENT
+
+
+We are going to create pgp key and encript the file
+
+9. gpg --homedir /home/subhankar/Azure/Example/Key --full-generate-key
+
+passphrase : admin1234@
+
+convert the public and private key as .asc file
+
+10. gpg --homedir /home/subhankar/Azure/Example/Key --armor --export "admin" > publickey.asc
+    gpg --homedir /home/subhankar/Azure/Example/Key --armor --export-secret-keys "admin" > privatekey.asc
+
+
+11. encript the message
+gpg --homedir /home/subhankar/Azure/Example/Key --armor --encrypt --recipient "admin" /home/subhankar/Azure/Example/temp.csv
+
+
+12. decode the key as base64 
+base64 -w 0 privatekey.asc > privatekey_base64_singleline.txt 
+
+13. decode the encripted temp file as well
+
+
+
+Note : we create pgp key from https://8gwifi.org/pgpencdec.jsp
+
+
+
+Ftp 
+
+https://sftpcloud.io/tools/free-ftp-server location
+
+login into ftp
+https://demo.filestash.app/files/
+
+
+

@@ -1,0 +1,52 @@
+
+*************************** Overview ********************************
+
+
+
+We Have APIM [Base URL : https://testapimsubhankar.azure-api.net]
+         |
+        \ /
+Aure Function [We have environment Variable set inside that For FTP Host and USER PASS We need to change]
+         |
+        \ /
+After Request come to Azure Function We check the request body preseent or Not
+then decode the base64 then upload to blob storage 
+
+then for key vault we extrat private key and use that key for decript the file
+then upload the file to FTP location
+
+
+***********************************************************************
+
+Step : 
+
+1. URL : https://testapimsubhankar.azure-api.net/test/http_trigger?subscription-key=2c9f5ca29d2f450b921b3ca964d33e42
+
+
+2. POST Method
+3. Request Body
+
+{
+  "BankName": "Bank_AB",
+  "File" : "LS0tLS1CRUdJTiBQR1AgTUVTU0FHRS0tLS0tClZlcnNpb246IEJDUEcgdjEuNTgKCmhJd0RmNEpNUWJMM3Q3QUJCQURJOXEzcnBDNGlyNFNuaFVmdFZ2SHFMSWMyN3JtU2tmVzBCWlU3TENrRHY0K0MKQ3lyc1AyN0JuZnlBSExRWXgrZi9DcGdkS1lrOUkzSlR4R0xEcS9tMDQvZngyMVdBR0lBa3E5dVFnMUlhSDFpdwpCellWV203RXJvdnVDV1BoalBSMVVMRUhURGdtNWRGWVc3Z0NhSVJVOTVnUUFIUFhyT1dscml4MHlzTkdFdEpsCkFYeVpEMmhlcTQrNXBlWlJ3ZE9jRnJUVTV5cWRTbWk1ckl4elRxQXhpQzhMS2FCZnZTTUdJcjJMcVZnbWMzYUgKSE9pNTNOcjNMOWM1RmZhalZvZHNlVlFrMWZCRjg3TXBXWTFPZnlHUW5kVW5NLzNEK1pwSGx4K3F6TVFyeExhZgp1THhVM1kwPQo9bWpGMgotLS0tLUVORCBQR1AgTUVTU0FHRS0tLS0t"
+}
+
+Note : this body is encripted whih PGP key and base64 encoded inside Example folder we have key pair
+       we can use the for testing purpose
+
+       Below url used for test pgp key pair we can build test file .asc format
+       URL : https://8gwifi.org/pgpencdec.jsp
+
+
+
+4. Currently we don't have any FTP services so we are using below FTP service for temporary
+   URL : https://sftpcloud.io/tools/free-ftp-server
+
+   below url is used for login FTP server [we need to create /Test file]
+   URL : https://demo.filestash.app/files
+
+5. We need to login Azure Portal for checking the file inside BLOB stroage
+
+
+
+
